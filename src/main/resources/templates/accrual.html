@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/accrual" method="post">
+        <div><input type="number" name="id" placeholder="Id сотрудника"></div>
+        <div><input type="text" name="date" placeholder="Дата"></div>
+        <div><input type="number" name="summ" placeholder="Сумма начисления"></div>
+        <div><button type="submit">Добавить</button></div>
+    </form>
+    <div>Список начислений:</div>
+    <div th:each="element : ${salary}">
+        <div th:text="${element.employeeId} + ' ' + ${element.employeeName} + ' ' + ${element.date} + ' ' + ${element.sum}" />
+    </div>
+</body>
+</html>
